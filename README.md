@@ -1,14 +1,53 @@
-# 22 State: Redux Store (Extra Credit)
+# [State: Redux Store](https://extra-module-22.herokuapp.com/)
 
-## Your Task
+This is a full stack e-commerce web application that was built using REACT, but also an attempt to refactor this e-commerce platform so that it uses [Redux](https://redux.js.org/).
 
-In this module, you learned how to manage global state using React’s Context API. The Context API is quickly gaining traction as a worthy alternative or perhaps even successor to other libraries that manage global state in tandem with React, such as Flux or MobX. Nonetheless, the open source JavaScript library Redux remains the industry standard for managing complex state in a large-scale React application, and you’ll likely encounter it on the job.
+## Table of Contents
 
-Your challenge this week is to refactor the e-commerce platform from [Activity 26](../01-Activities/26-Stu_Actions-Reducers/Unsolved) so that it uses [Redux](https://redux.js.org/). You won’t need to make sweeping changes to the code, but you will need to read through the Redux documentation on your own to find the information you need. Some guidelines have been provided in the Getting Started section to point you in the right direction. If you haven't yet, download the [e-commerce platform code from Activity 26](http://static.fullstack-bootcamp.com/fullstack-ground/unit-22/26-Stu_Actions-Reducers.zip).
+- [Technologies Used](#technologies)
+- [Usage](#usage)
+- [User Story](#user-story)
+- [Code Snippets](#code-snippets)
+- [Software Demo](#demo)
+- [Credits](#credits)
 
-**On the Job**: Web developers frequently have to immerse themselves in a new technology to solve a problem, with only that tool’s documentation for help. They must sift through it to find the information that matches the specific problem they’re trying to solve. This assignment will allow you to practice a skill that you’ll use many times over the course of your career.
+## Technologies
 
-Remember, this module's Challenge is extra credit. It is not required for submission, nor will it count towards one of the two assignments that you can skip. If you choose to submit this Challenge, you will receive extra credit points on your final grade. However, if you choose not to submit it, your final grade will not be affected in any way. This Challenge is an opportunity for you to further practice your skills and get feedback on it, with the added incentive of receiving extra credit for the work.
+- HTML
+- JavaScript
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+- [Heroku](https://www.heroku.com)
+- NPM:
+
+1. [Apollo Client Package](https://www.npmjs.com/package/stripe)
+2. [Apollo-Server-Express Package](https://www.npmjs.com/package/apollo-server-express)
+3. [GraphQL Package](https://www.npmjs.com/package/graphql)
+4. [Bcrypt Package](https://www.npmjs.com/package/bcrypt)
+5. [Express.js Package](https://www.npmjs.com/package/express)
+6. [JSONWebToken](https://www.npmjs.com/package/jsonwebtoken)
+7. [Mongoose Package](https://www.npmjs.com/package/mongoose)
+8. [Node.js](https://nodejs.org/en/)
+9. [nodemon Package](https://www.npmjs.com/package/nodemon)
+10. [JWT-Decode Package](https://www.npmjs.com/package/jwt-decode)
+11. [React Package](https://www.npmjs.com/package/react)
+12. [React-Bootstrap](https://www.npmjs.com/package/react-bootstrap)
+13. [React-Dom](https://www.npmjs.com/package/react-dom)
+14. [React-Router-Dom](https://www.npmjs.com/package/react-router-dom)
+15. [React-Scripts](https://www.npmjs.com/package/react-scripts)
+16. [REDUX](https://www.npmjs.com/package/redux)
+
+## Usage
+
+To run locally, run the following commands on the terminal from the root directory:
+If you want to run locally perform the following:
+
+```
+git clone
+npm install
+npm start
+```
+
+And use the website http://localhost:3001/
 
 ## User Story
 
@@ -18,115 +57,35 @@ I WANT my platform to use Redux to manage global state instead of the Context AP
 SO THAT my website's state management is taken out of the React ecosystem
 ```
 
-## Acceptance Criteria
+## Code Snippets
 
-```md
-GIVEN an e-commerce platform that uses Redux to manage global state
-WHEN I review the app’s store
-THEN I find that the app uses a Redux store instead of the Context API
-WHEN I review the way the React front end accesses the store
-THEN I find that the app uses a Redux provider
-WHEN I review the way the app determines changes to its global state
-THEN I find that the app passes reducers to a Redux store instead of using the Context API
-WHEN I review the way the app extracts state data from the store
-THEN I find that the app uses Redux instead of the Context API
-WHEN I review the way the app dispatches actions
-THEN I find that the app uses Redux instead of the Context API
+The following passage sets up the REDUX package to be used throughout the client side:
+
+```java
+import { createStore } from "redux";
+import reducer from "../utils/reducers";
+
+const store = createStore(reducer);
+export default store;
 ```
 
-## Mock-Up
+## Demo
 
-This section reviews the web application's general appearance and functionality.
+Here's a screenshot of the web application.
 
-The following animation shows how a user can register using the Signup page and then navigate to the Products page:
+![default](/assets/demo.png)
 
-![A user registers on the Signup page and then navigates to the Products page, which displays images and descriptions of products.](./Assets/22-state-homework-demo-01.gif)
+## Developer Information
 
-The following animation shows how the user can select a category, choose a product, view details about it on the product page, and add and remove it from their shopping cart:
+### **Clement Koo**
 
-![The user selects a category, chooses a product, views details about it on the product page, and adds it to and removes it from their shopping cart.](./Assets/22-state-homework-demo-02.gif)
+[LinkdIn](https://www.linkedin.com/in/clement-t-k-459322138/) |
+[GitHub](https://github.com/C-K999)
 
-Finally, the user can check out by going to their shopping cart, as shown in the following animation:
+## Credits
 
-![The user checks out by going to their shopping cart.](./Assets/22-state-homework-demo-03.gif)
+UCB - Coding Bootcamp
 
-## Getting Started
+---
 
-For instructions to add Redux to your application, refer to the [Redux Fundamentals basic tutorial](https://redux.js.org/basics/basic-tutorial). Note that the documentation will refer to additional packages that you'll need to complete this implementation.
-
-Be sure to review ALL of the documentation, because there are newer methods that can make these tools much easier to implement. React has gone through several iterations; as such, some React-and-Redux tutorials will assume that you aren't using Hooks.
-
-You'll use the Stripe API to process payments, which includes making front-end and back-end changes. Don't worry, Stripe provides test credentials, so you won't need to use a real credit card to try it out. Refer to the [Stripe docs on testing your integration](https://stripe.com/docs/testing).
-
-**Important**: The Challenge requires a specific version `(>=7.0)` of `npm` in order to install peer dependencies like GraphQL when deploying to Heroku. By default, Heroku uses `npm 6.x`, which may cause some issues. Be sure to refer to the [Heroku Docs on Specifying an NPM Version](https://devcenter.heroku.com/articles/nodejs-support#specifying-an-npm-version) to ensure your `package.json` file is set up correctly, as shown in the following snippet:
-
-  ```json
-  {
-    "engines": {
-      "npm": "7.x"
-    }
-  }
-  ```
-
-## Grading Requirements
-
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-
-This Challenge is graded based on the following criteria:
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-  * Retains all the functionality of the original application.
-
-  * Application must be deployed to Heroku.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository contains application code.
-
-### Application Quality: 15%
-
-* User experience is intuitive and easy to navigate.
-
-* User interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the Challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains high-quality README file with description, screenshot, and link to the deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository, with a unique name and a README describing the project.
-
-- - -
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+© 2022 Clement Koo. All Rights Reserved.
