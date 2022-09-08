@@ -16,7 +16,7 @@ import Signup from "./pages/Signup";
 import Nav from "./components/Nav";
 // import { StoreProvider } from "./utils/GlobalState";
 import Success from "./pages/Success";
-// import OrderHistory from "./pages/OrderHistory";
+import OrderHistory from "./pages/OrderHistory";
 
 // redux hook and store
 import { Provider } from "react-redux";
